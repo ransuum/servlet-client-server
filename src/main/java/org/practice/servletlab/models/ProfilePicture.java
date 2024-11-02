@@ -4,19 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.practice.servletlab.enums.Gender;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
 
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Builder
+@Data
+public class ProfilePicture {
     private String id;
     private String username;
-    private String email;
-    private String password;
-    private LocalDate birthday;
-    private Gender gender;
+    private byte[] profilePicture;
+    private Timestamp uploadDate;
 }
