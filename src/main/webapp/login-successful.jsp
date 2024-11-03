@@ -1,4 +1,7 @@
 <%@ page import="java.util.Base64" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +13,13 @@
             background-color: #f0f2f5;
             display: flex;
             justify-content: center;
-            align-items:  center;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
         }
+
         .success-container {
             background-color: white;
             padding: 2rem;
@@ -26,44 +30,18 @@
             text-align: center;
         }
 
-        .profile-picture {
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            object-fit: cover;
-        }
-
         h1 {
             color: #1877f2;
             margin-bottom: 1rem;
         }
+
         p {
             color: #606770;
             margin-bottom: 1.5rem;
         }
-        .button {
-            background-color: #1877f2;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background-color: #166fe5;
-        }
-        #countdown {
-            font-weight: bold;
-            color: #1877f2;
-        }
+
     </style>
 </head>
-<body>
 <body>
 <div class="success-container">
     <h1>Login Successful!</h1>
@@ -71,7 +49,13 @@
     <p>Your email: ${user.email}</p>
     <p>Your birthday: ${user.birthday}</p>
     <p>Gender: ${user.gender}</p>
+    <%!
+        public String formattedTimeDate() {
+            return  LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        }
+    %>
+    <h2>Time now: <%=formattedTimeDate()%>
+    </h2>
 </div>
-</body>
 </body>
 </html>
